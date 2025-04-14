@@ -1,0 +1,64 @@
+# ───────────────
+# 🧠 General Stuff
+# ───────────────
+*.log
+*.tmp
+*.bak
+*.swp
+*.swo
+*.old
+*~
+
+# ───────────────
+# ⚙️ Ansible
+# ───────────────
+*.retry
+*.vault
+*.cfg
+inventory.ini
+secrets.yml
+
+# ───────────────
+# 🐚 Shell + Dotfiles
+# ───────────────
+*.zsh_history
+*.bash_history
+.zshrc.local
+bashrc.local
+*.env
+.envrc
+
+# ───────────────
+# 🛠️ VS Code
+# ───────────────
+.vscode/
+.code-workspace
+
+# ───────────────
+# 💻 System Stuff
+# ───────────────
+.DS_Store
+Thumbs.db
+ehthumbs.db
+desktop.ini
+Icon?
+._*
+
+# ───────────────
+# 🐘 macOS Metadata
+# ───────────────
+*.AppleDouble
+.Spotlight-V100
+.Trashes
+.AppleDB
+.AppleDesktop
+Network Trash Folder
+Temporary Items
+
+# ───────────────
+# 🧪 Personal Testing Files
+# ───────────────
+test/
+tmp/
+scratch/
+notes.md
