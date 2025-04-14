@@ -1,0 +1,39 @@
+# Theme Config
+theme = tokyonight
+background-opacity = 0.8
+background-blur-radius = 10
+background = #030304
+
+# Font
+font-size = 16
+font-family = "MesloLGS NF"
+font-thicken = true
+bold-is-bright = true
+
+# Window Config
+macos-titlebar-style = hidden
+macos-option-as-alt = true
+window-decoration = true
+window-padding-x = 10
+window-padding-y = 10
+window-padding-balance = true
+window-height = 55
+window-width = 180
+
+# Cursor Style
+cursor-style = block
+cursor-style-blink = true
+cursor-invert-fg-bg = true
+mouse-hide-while-typing = true
+
+# Clipboard Settings
+copy-on-select = true
+clipboard-read = allow
+clipboard-write = allow
+
+# Extras
+auto-update = check
+auto-update-channel = stable
+shell-integration-features = no-cursor
+keybind = global:cmd+shift+enter=toggle_quick_terminal
+confirm-close-surface = true
