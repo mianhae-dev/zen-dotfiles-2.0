@@ -1,0 +1,7 @@
+---
+- name: ZenDotfiles
+  hosts: localhost
+  connection: local
+
+  roles:
+    - ghostty
