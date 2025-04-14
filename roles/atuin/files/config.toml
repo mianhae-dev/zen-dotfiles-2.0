@@ -1,0 +1,28 @@
+## which style to use
+## possible values: auto, full, compact
+style = "full"
+
+## enable or disable automatic update checks
+update_check = true
+
+## Invert the UI - put the search bar at the top , Default to `false`
+invert = true
+
+## the maximum number of lines the interface should take up
+## set it to 0 to always go full screen
+inline_height = 20
+
+## Defaults to true. If enabled, upon hitting enter Atuin will immediately execute the command. Press tab to return to the shell and edit.
+# This applies for new installs. Old installs will keep the old behaviour unless configured otherwise.
+enter_accept = true
+
+## Defaults to "emacs".  This specifies the keymap on the startup of `atuin
+## search`.  If this is set to "auto", the startup keymap mode in the Atuin
+## search is automatically selected based on the shell's keymap where the
+## keybinding is defined.  If this is set to "emacs", "vim-insert", or
+## "vim-normal", the startup keymap mode in the Atuin search is forced to be
+## the specified one.
+keymap_mode = "vim-insert"
+
+[theme]
+name = "tokyo-night"

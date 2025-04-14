@@ -1,0 +1,33 @@
+---
+- name: "Install atuin"
+  community.general.homebrew:
+    name: atuin
+    state: present
+    update_homebrew: yes
+
+###< this plugin will enable atuin over zinit
+###< but it requires zinit preinstalled on the system
+- name: "Ensure zinit plugin load for Atuin is in .zshrc"
+  ansible.builtin.lineinfile:
+    path: "{{ ansible_env.HOME }}/.zshrc"
+    line: "zinit load atuinsh/atuin"
+    state: present
+    insertafter: EOF
+
+- name: "Ensure Atuin config directories exist"
+  ansible.builtin.file:
+    path: "{{ item }}"
+    state: directory
+    mode: "0700"
+  loop:
+    - "{{ ansible_env.HOME }}/.config/atuin"
+    - "{{ ansible_env.HOME }}/.config/atuin/themes"
+
+- name: "Deploy Atuin configuration files"
+  ansible.builtin.copy:
+    src: "{{ item.src }}"
+    dest: "{{ ansible_env.HOME }}/{{ item.dest }}"
+    mode: "0600"
+  loop:
+    - { src: "config.toml", dest: ".config/atuin/config.toml" }
+    - { src: "tokyo-night.toml", dest: ".config/atuin/themes/tokyo-night.toml" }
