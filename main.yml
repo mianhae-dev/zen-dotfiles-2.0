@@ -10,3 +10,5 @@
       tags: [atuin]
     - role: zsh
       tags: [zsh]
+    - role: starship
+      tags: [starship]
