@@ -4,5 +4,9 @@
   connection: local
 
   roles:
-    - ghostty
-    - atuin
+    - role: ghostty
+      tags: [ghostty]
+    - role: atuin
+      tags: [atuin]
+    - role: zsh
+      tags: [zsh]
