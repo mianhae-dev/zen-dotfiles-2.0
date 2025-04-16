@@ -1,3 +1,9 @@
+## v0.4.0 (2025-04-16)
+
+### Feat
+
+- **starship**: introduce automation for `starship`
+
 ## v0.3.0 (2025-04-16)
 
 ### Feat
