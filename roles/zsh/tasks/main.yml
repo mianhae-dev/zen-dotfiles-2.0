@@ -25,7 +25,7 @@
     dest: "{{ item.dest }}"
     mode: "0644"
   loop:
-    - { src: ".zshrc",    dest: "{{ ansible_user_dir }}/.zshrc" }
-    - { src: "alias/",    dest: "{{ ansible_user_dir }}/.config/zsh/alias/" }
+    - { src: ".zshrc", dest: "{{ ansible_user_dir }}/.zshrc" }
+    - { src: "alias/", dest: "{{ ansible_user_dir }}/.config/zsh/alias/" }
     - { src: "function/", dest: "{{ ansible_user_dir }}/.config/zsh/function/" }
-    - { src: "var/",      dest: "{{ ansible_user_dir }}/.config/zsh/var/" }
+    - { src: "var/", dest: "{{ ansible_user_dir }}/.config/zsh/var/" }

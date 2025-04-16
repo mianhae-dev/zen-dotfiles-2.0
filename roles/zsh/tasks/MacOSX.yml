@@ -3,14 +3,10 @@
   community.general.homebrew:
     name: zsh
     state: present
-    update_homebrew: yes
-
-- name: "Getting default user"
-  ansible.builtin.shell: whoami
-  register: host_user
+    update_homebrew: true
 
 - name: "Setting ZSH as default shell"
   ansible.builtin.user:
-    name: "{{ host_user.stdout }}"
+    name: "{{ ansible_user_id }}"
     shell: /opt/homebrew/bin/zsh
   become: true
