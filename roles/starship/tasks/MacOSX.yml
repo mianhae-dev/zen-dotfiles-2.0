@@ -1,0 +1,6 @@
+---
+- name: "Installing starship"
+  community.general.homebrew:
+    name: starship
+    state: present
+    update_homebrew: yes
