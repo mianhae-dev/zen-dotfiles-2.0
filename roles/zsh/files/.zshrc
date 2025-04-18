@@ -39,7 +39,7 @@ autoload -Uz compinit && compinit
 
 # source of shell functions must be after compinit
 # REASON: some shell functions use cmpdeff, which is being loaded by compinit
-for type in "alias" "function" "var"; do
+for type in "var" "function" "alias"; do
   dir="${HOME}/.config/zsh/${type}"
   [ -d "$dir" ] || continue
   for file in "$dir"/*; do
