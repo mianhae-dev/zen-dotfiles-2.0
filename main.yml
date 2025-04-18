@@ -18,3 +18,5 @@
       tags: [git]
     - role: yazi
       tags: [yazi]
+    - role: bat
+      tags: [bat]
