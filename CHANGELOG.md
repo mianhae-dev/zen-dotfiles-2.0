@@ -1,3 +1,9 @@
+## v0.9.1 (2025-04-18)
+
+### Fix
+
+- **zsh**: fix load order for environment variables
+
 ## v0.9.0 (2025-04-18)
 
 ### Feat
