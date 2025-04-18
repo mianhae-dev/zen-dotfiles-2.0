@@ -1,3 +1,12 @@
+## v0.4.1 (2025-04-18)
+
+### Refactor
+
+- **zsh**: fix ansible linting issues
+- **starship**: fix ansible linting issues
+- **ghostty**: fix ansible linting issues
+- **atuin**: fix ansible linting issues
+
 ## v0.4.0 (2025-04-16)
 
 ### Feat
