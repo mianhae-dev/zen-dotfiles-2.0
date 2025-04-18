@@ -1,0 +1,19 @@
+yazi_dependencies:
+  - ffmpeg
+  - sevenzip
+  - jq
+  - poppler
+  - fd
+  - ripgrep
+  - fzf
+  - zoxide
+  - resvg
+  - imagemagick
+  - font-symbols-only-nerd-font
+
+yazi_plugins:
+  - yazi-rs/plugins:full-border
+  - Rolv-Apneseth/starship
+
+yazi_themes:
+  - BennyOe/tokyo-night

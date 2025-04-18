@@ -1,0 +1,35 @@
+---
+- name: "Checking for distribution donfig: {{ ansible_distribution }}"
+  ansible.builtin.stat:
+    path: "{{ role_path }}/tasks/{{ ansible_distribution }}.yml"
+  register: distribution_config
+
+- name: "Run Tasks for distribution: {{ ansible_distribution }}"
+  ansible.builtin.include_tasks: "{{ ansible_distribution }}.yml"
+  when: distribution_config.stat.exists
+
+- name: "Ensure yazi config directories exist"
+  ansible.builtin.file:
+    path: "{{ item }}"
+    state: directory
+    mode: "0700"
+  loop:
+    - "{{ ansible_user_dir }}/.config"
+    - "{{ ansible_user_dir }}/.config/yazi"
+
+- name: "Deploy yazi config"
+  ansible.builtin.copy:
+    src: "files/"
+    dest: "{{ ansible_user_dir }}/.config/yazi/"
+    mode: "0644"
+
+- name: Install yazi packages
+  ansible.builtin.command: ya pack --add "{{ item }}"
+  loop: "{{ yazi_plugins + yazi_themes }}"
+  register: yazi_result
+  failed_when: >
+    yazi_result.rc != 0 and
+    'already exists in package.toml' not in yazi_result.stderr | default('')
+  changed_when: "'already exists in package.toml' not in yazi_result.stderr | default('')"
+  loop_control:
+    label: "{{ item }}"

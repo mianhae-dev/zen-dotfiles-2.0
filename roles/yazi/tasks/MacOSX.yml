@@ -1,0 +1,14 @@
+---
+
+- name: Installing dependencies for yazi
+  community.general.homebrew:
+    name: "{{ item }}"
+    state: present
+    update_homebrew: true
+  loop: "{{ yazi_dependencies }}"
+
+- name: Installing yazi
+  community.general.homebrew:
+    name: yazi
+    state: present
+    update_homebrew: true
