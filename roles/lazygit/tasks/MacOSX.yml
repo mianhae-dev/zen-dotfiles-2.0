@@ -1,4 +1,12 @@
 ---
+
+- name: "Installing dependencies"
+  community.general.homebrew:
+    name: "{{ item }}"
+    state: present
+    update_homebrew: true
+  loop: "{{ lazygit_dependencies }}"
+
 - name: "Installing lazygit"
   community.general.homebrew:
     name: lazygit

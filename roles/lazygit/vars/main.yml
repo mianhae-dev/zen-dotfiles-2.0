@@ -1,0 +1,2 @@
+lazygit_dependencies:
+  - commitizen # < this used as default commit tool and binded to short-key
