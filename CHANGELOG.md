@@ -1,3 +1,9 @@
+## v0.7.0 (2025-04-18)
+
+### Feat
+
+- **yazi**: introduce yazi automated setup
+
 ## v0.6.0 (2025-04-18)
 
 ### Feat
