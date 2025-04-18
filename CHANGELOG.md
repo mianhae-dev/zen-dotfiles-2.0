@@ -1,3 +1,10 @@
+## v0.9.0 (2025-04-18)
+
+### Feat
+
+- **zsh**: add alias for bat
+- **bat**: introduce automated setup for `bat`
+
 ## v0.8.0 (2025-04-18)
 
 ### Feat
