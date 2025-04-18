@@ -1,0 +1,31 @@
+---
+- name: "Checking for distribution: {{ ansible_distribution }}"
+  ansible.builtin.stat:
+    path: "{{ role_path }}/tasks/{{ ansible_distribution }}.yml"
+  register: distribution_config
+
+- name: "Run distribution specific tasks: {{ ansible_distribution }}"
+  ansible.builtin.include_tasks: "{{ ansible_distribution }}.yml"
+  when: distribution_config.stat.exists
+
+- name: "Ensure git config directories exist"
+  ansible.builtin.file:
+    path: "{{ item }}"
+    state: directory
+    mode: "0700"
+  loop:
+    - "{{ ansible_user_dir }}/.config"
+    - "{{ ansible_user_dir }}/.config/git"
+
+- name: "Deploy git config"
+  ansible.builtin.copy:
+    src: config
+    mode: "0644"
+    dest: "{{ ansible_user_dir }}/.config/git/config"
+
+- name: "Ensure git configurtion file path"
+  ansible.builtin.lineinfile:
+    path: "{{ ansible_user_dir }}/.config/zsh/var/var.zsh"
+    line: export GIT_CONFIG_GLOBAL="{{ ansible_user_dir }}/.config/git/config"
+    state: present
+    insertafter: EOF
