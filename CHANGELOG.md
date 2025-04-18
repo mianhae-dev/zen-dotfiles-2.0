@@ -1,3 +1,9 @@
+## v0.8.0 (2025-04-18)
+
+### Feat
+
+- **lazygit**: add commitizen as dependency for lazygit
+
 ## v0.7.0 (2025-04-18)
 
 ### Feat
