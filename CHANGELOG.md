@@ -1,3 +1,9 @@
+## v0.6.0 (2025-04-18)
+
+### Feat
+
+- **git**: introduce automation for git
+
 ## v0.5.0 (2025-04-18)
 
 ### Feat
