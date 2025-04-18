@@ -1,0 +1,6 @@
+---
+- name: "Install bat"
+  community.general.homebrew:
+    name: bat
+    state: present
+    update_homebrew: true
