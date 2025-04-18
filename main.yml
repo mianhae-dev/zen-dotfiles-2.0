@@ -12,3 +12,5 @@
       tags: [zsh]
     - role: starship
       tags: [starship]
+    - role: lazygit
+      tags: [lazygit]
