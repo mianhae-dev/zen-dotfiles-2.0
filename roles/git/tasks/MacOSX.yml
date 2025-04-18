@@ -1,0 +1,13 @@
+---
+- name: "Installing dependencies for git"
+  community.general.homebrew:
+    name: "{{ item }}"
+    state: present
+    update_homebrew: true
+  loop: "{{ git_dependencies }}"
+
+- name: "Installing git"
+  community.general.homebrew:
+    name: git
+    state: present
+    update_homebrew: true

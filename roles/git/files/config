@@ -1,0 +1,71 @@
+[color]
+  # Enable colors in color-supporting terminals
+  ui = auto
+
+[core]
+  pager = delta
+  excludeFiles = "$XDG_CONFIG_HOME/git/.gitignore_global"
+  editor = code --wait # default editor
+  whitespace = -trailing-space # Don't consider trailing space change as a cause for merge conflicts
+
+[diff]
+  mnemonicPrefix = true # better, descriptive initials (c, i, w) instead of a/b.
+  renames = true  # Show renames/moves as such
+  wordRegex = .   # When using --word-diff, assume --word-diff-regex=.
+  submodule = log
+  tool = vscode   # Use VSCode as default diff tool when running `git diff-tool`
+
+[log]
+  # Use abbrev SHAs whenever possible/relevant instead of full 40 chars
+  abbrevCommit = true
+  follow = true
+  decorate = false
+
+[merge]
+  conflictStyle = zdiff3 # Display common-ancestor blocks in conflict hunks
+
+[mergetool]
+  # Clean up backup files created by merge tools on tool exit
+  keepBackup = true
+  # Clean up temp files created by merge tools on tool exit
+  keepTemporaries = false
+  # Put the temp files in a dedicated dir anyway
+  writeToTemp = true
+  prompt = false
+
+[interactive]
+  diffFilter = delta --color-only
+
+[push]
+  default = upstream   # Default push should only push the current branch to its push target, regardless of its remote name
+  followTags = true    # When pushing, also push tags whose commit-ishs are now reachable upstream
+
+[rebase]
+  autoStash = true
+
+[tag]
+  sort = version:refname   # Sort tags as version numbers whenever applicable, so 1.10.2 is AFTER 1.2.0.
+
+[versionsort]
+  prereleaseSuffix = -pre
+  prereleaseSuffix = .pre
+  prereleaseSuffix = -beta
+  prereleaseSuffix = .beta
+  prereleaseSuffix = -rc
+  prereleaseSuffix = .rc
+
+[delta]
+  side-by-side = true
+  navigate = true
+  minus-style                   = syntax "#37222c"
+  minus-non-emph-style          = syntax "#37222c"
+  minus-emph-style              = syntax "#713137"
+  minus-empty-line-marker-style = syntax "#37222c"
+  line-numbers-minus-style      = "#914c54"
+  plus-style                    = syntax "#20303b"
+  plus-non-emph-style           = syntax "#20303b"
+  plus-emph-style               = syntax "#2c5a66"
+  plus-empty-line-marker-style  = syntax "#20303b"
+  line-numbers-plus-style       = "#449dab"
+  line-numbers-zero-style       = "#3b4261"
+  
