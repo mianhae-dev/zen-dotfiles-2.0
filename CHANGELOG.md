@@ -1,3 +1,9 @@
+## v0.5.0 (2025-04-18)
+
+### Feat
+
+- **lazygit**: introduce automation for lazygit
+
 ## v0.4.1 (2025-04-18)
 
 ### Refactor
