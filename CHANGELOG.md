@@ -1,3 +1,9 @@
+## v0.10.0 (2025-04-27)
+
+### Feat
+
+- **zsh**: extend aliases and add function to pick wallpaper
+
 ## v0.9.1 (2025-04-18)
 
 ### Fix
