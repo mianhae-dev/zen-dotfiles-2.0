@@ -1,7 +1,7 @@
 #!/usr/bin/env zsh
 
 # FIXME: After development finished, this path has to be adjusted
-DOTFILES_DIR="/Volumes/zen-dotfiles"
+DOTFILES_DIR="$HOME/Developer/zen-dotfiles"
 
 # Function to handle tab completion
 _complete_tags() {
