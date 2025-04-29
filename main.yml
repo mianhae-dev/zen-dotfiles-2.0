@@ -20,3 +20,5 @@
       tags: [yazi]
     - role: bat
       tags: [bat]
+    - role: zoxide
+      tags: [zoxide]

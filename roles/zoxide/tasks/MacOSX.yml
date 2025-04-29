@@ -1,0 +1,7 @@
+---
+- name: Installing dependencies for zoxide
+  community.general.homebrew:
+    name: "{{ item }}"
+    state: present
+    update_homebrew: true
+  loop: "{{ zoxide_dependencies }}"
