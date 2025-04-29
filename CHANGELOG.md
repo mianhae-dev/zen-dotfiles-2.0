@@ -1,3 +1,9 @@
+## v0.11.0 (2025-04-29)
+
+### Feat
+
+- **zoxide**: introduce zoxide automation
+
 ## v0.10.0 (2025-04-27)
 
 ### Feat
