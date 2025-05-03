@@ -1,0 +1,31 @@
+---
+- name: "Checking for distribution config: {{ ansible_distribution }}"
+  ansible.builtin.stat:
+    path: "{{ role_path }}/tasks/{{ ansible_distribution }}.yml"
+  register: distribution_config
+
+- name: "Run Tasks for distribution: {{ ansible_distribution }}"
+  ansible.builtin.include_tasks: "{{ ansible_distribution }}.yml"
+  when: distribution_config.stat.exists
+
+- name: "Ensure tmux config directories exist"
+  ansible.builtin.file:
+    path: "{{ item }}"
+    state: directory
+    mode: "0700"
+  loop:
+    - "{{ ansible_user_dir }}/.config"
+    - "{{ ansible_user_dir }}/.config/tmux"
+    - "{{ ansible_user_dir }}/.config/tmux/plugins"
+
+- name: "Clone TPM"
+  ansible.builtin.git:
+    repo: https://github.com/tmux-plugins/tpm
+    dest: "{{ ansible_user_dir }}/.config/tmux/plugins/tpm"
+    version: v3.1.0
+
+- name: "Deploy tmux config"
+  ansible.builtin.copy:
+    src: "files/"
+    dest: "{{ ansible_user_dir }}/.config/tmux/"
+    mode: "0644"

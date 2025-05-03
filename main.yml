@@ -22,3 +22,5 @@
       tags: [bat]
     - role: zoxide
       tags: [zoxide]
+    - role: tmux
+      tags: [tmux]
