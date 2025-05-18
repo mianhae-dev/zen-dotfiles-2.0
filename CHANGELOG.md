@@ -1,3 +1,13 @@
+## v0.12.0 (2025-05-18)
+
+### Feat
+
+- **tmux**: introduce automated tmux setup
+
+### Fix
+
+- **starship**: remove python module from starship
+
 ## v0.11.0 (2025-04-29)
 
 ### Feat
