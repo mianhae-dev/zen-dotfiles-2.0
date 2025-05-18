@@ -1,3 +1,9 @@
+## v0.13.0 (2025-05-18)
+
+### Feat
+
+- **zsh**: add vi / vim / nvim alias for `zsh`
+
 ## v0.12.1 (2025-05-18)
 
 ### Fix
