@@ -1,3 +1,9 @@
+## v0.12.1 (2025-05-18)
+
+### Fix
+
+- **zoxide**: fix missing package installation
+
 ## v0.12.0 (2025-05-18)
 
 ### Feat
