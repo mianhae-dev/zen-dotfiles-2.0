@@ -1,3 +1,9 @@
+## v0.15.0 (2025-05-22)
+
+### Feat
+
+- **aerospace**: introduce aerospace automation
+
 ## v0.14.0 (2025-05-22)
 
 ### Feat
