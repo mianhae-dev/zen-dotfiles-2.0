@@ -1,3 +1,9 @@
+## v0.14.0 (2025-05-22)
+
+### Feat
+
+- **starship**: add nerdfont icon for AZ DevOps
+
 ## v0.13.0 (2025-05-18)
 
 ### Feat
