@@ -1,0 +1,19 @@
+---
+- name: "Installing dependencies for aerospace"
+  community.general.homebrew:
+    name: "{{ item }}"
+    state: present
+    update_homebrew: true
+  loop: "{{ aerospace_dependencies }}"
+
+- name: "Installing aerospace"
+  community.general.homebrew_cask:
+    name: nikitabobko/tap/aerospace
+    state: present
+    update_homebrew: true
+
+- name: "Esure that config directory exist"
+  ansible.builtin.file:
+    path: "{{ ansible_env.HOME }}/.config/aerospace"
+    state: directory
+    mode: "0700"

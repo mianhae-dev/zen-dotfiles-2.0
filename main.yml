@@ -24,3 +24,5 @@
       tags: [zoxide]
     - role: tmux
       tags: [tmux]
+    - role: aerospace
+      tags: [aerospace]
