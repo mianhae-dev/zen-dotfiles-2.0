@@ -1,0 +1,24 @@
+---
+- name: "Checking for distribution donfig: {{ ansible_distribution }}"
+  ansible.builtin.stat:
+    path: "{{ role_path }}/tasks/{{ ansible_distribution }}.yml"
+  register: distribution_config
+
+- name: "Run Tasks for distribution: {{ ansible_distribution }}"
+  ansible.builtin.include_tasks: "{{ ansible_distribution }}.yml"
+  when: distribution_config.stat.exists
+
+- name: "Ensure aerospace config directory exist"
+  ansible.builtin.file:
+    path: "{{ item }}"
+    state: directory
+    mode: "0700"
+  loop:
+    - "{{ ansible_user_dir }}/.config"
+    - "{{ ansible_user_dir }}/.config/aerospace"
+
+- name: "Deploy aerospace config"
+  ansible.builtin.copy:
+    src: aerospace.toml
+    dest: "{{ ansible_user_dir }}/.config/aerospace"
+    mode: "0600"
