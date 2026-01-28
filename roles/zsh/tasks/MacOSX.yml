@@ -10,3 +10,9 @@
     name: "{{ ansible_facts['user_id'] }}"
     shell: /opt/homebrew/bin/zsh
   become: true
+
+# this is required for the update function
+- name: Tap cask-upgrade
+  community.general.homebrew_tap:
+    name: buo/cask-upgrade
+
