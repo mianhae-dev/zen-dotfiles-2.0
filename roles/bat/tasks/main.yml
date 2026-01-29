@@ -1,12 +1,12 @@
 ---
-- name: "Checking for distribution: {{ ansible_distribution }}"
+- name: "Checking for distribution: {{ ansible_facts['distribution'] }}"
   ansible.builtin.stat:
-    path: "{{ role_path }}/tasks/{{ ansible_distribution }}.yml"
-  register: distribution_conf
+    path: "{{ role_path }}/tasks/{{ ansible_facts['distribution'] }}.yml"
+  register: bat_distribution_conf
 
-- name: "Run distribution specific tasks: {{ ansiblle_distribution }}"
-  ansible.builtin.include_tasks: "{{ ansible_distribution }}.yml"
-  when: distribution_conf.stat.exists
+- name: "Run distribution specific tasks: {{ ansible_facts['distribution'] }}"
+  ansible.builtin.include_tasks: "{{ ansible_facts['distribution'] }}.yml"
+  when: bat_distribution_conf.stat.exists
 
 - name: "Ensure bat configuration directory exist"
   ansible.builtin.file:
@@ -14,8 +14,8 @@
     path: "{{ item }}"
     mode: "0755"
   loop:
-    - "{{ ansible_user_dir }}/.config/bat"
-    - "{{ ansible_user_dir }}/.config/bat/themes"
+    - "{{ ansible_facts['user_dir'] }}/.config/bat"
+    - "{{ ansible_facts['user_dir'] }}/.config/bat/themes"
 
 - name: "Deploy bat config"
   ansible.builtin.copy:
@@ -23,11 +23,11 @@
     dest: "{{ item.dest }}"
     mode: "0644"
   loop:
-    - { src: config, dest: "{{ ansible_user_dir }}/.config/bat/config"}
-    - { src: tokyonight_storm.tmTheme, dest: "{{ ansible_user_dir }}/.config/bat/themes/tokyonight_storm.tmTheme" }
+    - { src: config, dest: "{{ ansible_facts['user_dir'] }}/.config/bat/config" }
+    - { src: tokyonight_storm.tmTheme, dest: "{{ ansible_facts['user_dir'] }}/.config/bat/themes/tokyonight_storm.tmTheme" }
 
 # REASON: ansible will not see new theme until cache is rebuilt
 - name: "Rebuild bat cache"
   ansible.builtin.command: bat cache --build
   args:
-    creates: "{{ ansible_user_dir }}/.cache/bat"
+    creates: "{{ ansible_facts['user_dir'] }}/.cache/bat"

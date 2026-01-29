@@ -7,12 +7,12 @@
 
 - name: "Ensure that config directory exist"
   ansible.builtin.file:
-    path: "{{ ansible_env.HOME }}/.config/ghostty"
+    path: "{{ ansible_facts['user_dir'] }}/.config/ghostty"
     state: directory
     mode: "0700"
 
 - name: "Deploy configuration"
   ansible.builtin.copy:
     src: config
-    dest: "{{ ansible_env.HOME }}/.config/ghostty/config"
+    dest: "{{ ansible_facts['user_dir'] }}/.config/ghostty/config"
     mode: "0600"
