@@ -1,3 +1,9 @@
+## v0.15.1 (2026-01-29)
+
+### Fix
+
+- **ansible**: fix ansible linting issue / variables usage
+
 ## v0.15.0 (2025-05-22)
 
 ### Feat
