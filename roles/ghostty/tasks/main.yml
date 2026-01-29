@@ -1,9 +1,9 @@
 ---
-- name: "Checking for distribution donfig: {{ ansible_distribution }}"
+- name: "Checking for distribution donfig: {{ ansible_facts['distribution'] }}"
   ansible.builtin.stat:
-    path: "{{ role_path }}/tasks/{{ ansible_distribution }}.yml"
-  register: distribution_config
+    path: "{{ role_path }}/tasks/{{ ansible_facts['distribution'] }}.yml"
+  register: ghostty_distribution_config
 
-- name: "Run Tasks for distribution: {{ ansible_distribution }}"
-  ansible.builtin.include_tasks: "{{ ansible_distribution }}.yml"
-  when: distribution_config.stat.exists
+- name: "Run Tasks for distribution: {{ ansible_facts['distribution'] }}"
+  ansible.builtin.include_tasks: "{{ ansible_facts['distribution'] }}.yml"
+  when: ghostty_distribution_config.stat.exists

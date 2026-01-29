@@ -1,12 +1,12 @@
 ---
-- name: "Checking for distribution: {{ ansible_distribution }}"
+- name: "Checking for distribution: {{ ansible_facts['distribution'] }}"
   ansible.builtin.stat:
-    path: "{{ role_path }}/tasks/{{ ansible_distribution }}.yml"
-  register: distribution_config
+    path: "{{ role_path }}/tasks/{{ ansible_facts['distribution'] }}.yml"
+  register: lazygit_distribution_config
 
-- name: "Run distribution specific tasks: {{ ansible_distribution }}"
-  ansible.builtin.include_tasks: "{{ ansible_distribution }}.yml"
-  when: distribution_config.stat.exists
+- name: "Run distribution specific tasks: {{ ansible_facts['distribution'] }}"
+  ansible.builtin.include_tasks: "{{ ansible_facts['distribution'] }}.yml"
+  when: lazygit_distribution_config.stat.exists
 
 - name: "Ensure config directory exist"
   ansible.builtin.file:
@@ -14,11 +14,11 @@
     state: directory
     mode: "0700"
   loop:
-    - "{{ ansible_user_dir }}/.config"
-    - "{{ ansible_user_dir }}/.config/lazygit"
+    - "{{ ansible_facts['user_dir'] }}/.config"
+    - "{{ ansible_facts['user_dir'] }}/.config/lazygit"
 
 - name: "Deploy lazygit configuration file"
   ansible.builtin.copy:
     src: "config.yml"
-    dest: "{{ ansible_user_dir }}/.config/lazygit/config.yml"
+    dest: "{{ ansible_facts['user_dir'] }}/.config/lazygit/config.yml"
     mode: "0644"
