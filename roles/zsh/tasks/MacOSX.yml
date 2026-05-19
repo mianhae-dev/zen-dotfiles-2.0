@@ -15,4 +15,3 @@
 - name: Tap cask-upgrade
   community.general.homebrew_tap:
     name: buo/cask-upgrade
-
